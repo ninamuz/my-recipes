@@ -1,5 +1,6 @@
 import BookOfRecipes from "./components/BookOfRecipes";
 import SearchRecipes from "./components/SearchRecipes";
+import { FavContextProvider } from "./context/favorites";
 
 function App() {
 

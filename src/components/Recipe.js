@@ -1,13 +1,25 @@
+import React, { useContext } from 'react';
+import FavContext from '../context/favorites';
 
-import React from 'react'
+export default function Recipe({ title, type, image, recipe }) {
 
-export default function Recipe({ title, type, image }) {
+  const { updateFavorites, favorites } = useContext(FavContext);
+
+  function addToFavorites(e) {
+    e.preventDefault();
+    console.log('recipe clicked', recipe); //here Im getting the event
+    // updateFavorites(recipe);
+    // console.log(favorites);
+  };
 
   return (
     <div>
+      <div>
       <h2>{title}</h2>
+      <button value={recipe} onClick={addToFavorites}>Add to Favs</button>
+      </div>
       <p>Cuisine type: {type}</p>
-      {/* <img src={image}></img> */}
+      <img src={image}></img>
     </div>
   )
 }

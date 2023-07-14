@@ -13,12 +13,14 @@ const BookOfRecipes = () => {
   }, [query]); // Update dependency
 
   const renderedRecipes = recipes.map((data, index) => {
+    const recipe = data.recipe;
     const uniqueKey = data.recipe.label + index;
     return <Recipe
       key={uniqueKey}
-      title={data.recipe.label}
-      type={data.recipe.cuisineType}
-      image={data.recipe.image}
+      recipe={recipe}
+      title={recipe.label}
+      type={recipe.cuisineType}
+      image={recipe.image}
     />
   });
 
