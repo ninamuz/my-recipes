@@ -1,6 +1,6 @@
 import BookOfRecipes from "./components/BookOfRecipes";
+import MyFavRecipes from "./components/MyFavRecipes";
 import SearchRecipes from "./components/SearchRecipes";
-import { FavContextProvider } from "./context/favorites";
 
 function App() {
 
@@ -9,6 +9,7 @@ function App() {
     <h1>Book of Recipes</h1>
       <SearchRecipes />
       <BookOfRecipes />
+      <MyFavRecipes />
     </>
   )
 }
