@@ -1,5 +1,6 @@
 import FavContext from "../context/favorites";
 import React, { useContext } from 'react';
+import '../styles.css';
 
 function MyFavRecipes() {
 
@@ -13,7 +14,7 @@ function MyFavRecipes() {
   });
 
   return (
-    <div>
+    <div className="favorites">
       <h1>My Fav Recipes</h1>
       <ul>{renderedFavs}</ul>
     </div>

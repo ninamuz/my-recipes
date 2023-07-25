@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import FavContext from '../context/favorites';
+import '../styles.css';
 
 export default function Recipe({ title, type, image, recipe }) {
 
@@ -12,7 +13,8 @@ export default function Recipe({ title, type, image, recipe }) {
   };
 
   return (
-    <div>
+    <div className="recipe">
+      <h1>Single Recipe</h1>
       <div>
       <h2>{title}</h2>
       <button value={recipe} onClick={addToFavorites}>Add to Favs</button>

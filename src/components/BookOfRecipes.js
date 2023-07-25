@@ -2,6 +2,7 @@
 import { useContext, useEffect } from 'react';
 import Recipe from './Recipe';
 import RecipesContext from '../context/recipes';
+import '../styles.css';
 
 const BookOfRecipes = () => {
 
@@ -25,7 +26,7 @@ const BookOfRecipes = () => {
   });
 
   return (
-    <div>
+    <div className="book">
       {renderedRecipes}
     </div>
   );

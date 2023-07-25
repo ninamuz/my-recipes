@@ -1,5 +1,6 @@
 import { useState, useContext } from "react";
 import RecipesContext from "../context/recipes";
+import '../styles.css';
 
 const SearchRecipes = () => {
   const [search, setSearch] = useState('');
@@ -17,7 +18,7 @@ const SearchRecipes = () => {
   }
 
   return (
-    <div>
+    <div className="search">
       <form onSubmit={getSearch}>
         <input
           name="foodTerm"
