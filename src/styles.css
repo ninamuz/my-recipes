@@ -22,10 +22,23 @@
 .recipe {
   grid-column: 2 / 3;
   grid-row: 3 / 4;
+  border: 1px solid blueviolet;
+  margin: 10px;
+  background-color: rgb(245, 239, 203);
+}
+
+.recipe-header {
+  display: flex;
+  justify-content: space-between;
 }
 
 .favorites {
   grid-column: 2 / 3;
   grid-row: 3 / 4 ;
   text-align: center;
+}
+
+.fav-header {
+  display: flex;
+  justify-content: space-between;
 }
