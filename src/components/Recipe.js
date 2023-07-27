@@ -14,10 +14,11 @@ export default function Recipe({ title, type, image, recipe }) {
 
   return (
     <div className="recipe">
-      <h1>Single Recipe</h1>
-      <div>
-      <h2>{title}</h2>
-      <button value={recipe} onClick={addToFavorites}>Add to Favs</button>
+      <div className='recipe-header'>
+        <h2>{title}</h2>
+        <button value={recipe} onClick={addToFavorites}>
+          <ion-icon name="star-outline"></ion-icon>
+        </button>
       </div>
       <p>Cuisine type: {type}</p>
       {/* <img src={image}></img> */}

@@ -1,5 +1,6 @@
 import FavContext from "../context/favorites";
 import React, { useContext } from 'react';
+import FavRecipe from "./FavRecipe";
 import '../styles.css';
 
 function MyFavRecipes() {
@@ -8,7 +9,11 @@ function MyFavRecipes() {
 
   const renderedFavs = favorites.map(recipe => {
     if (recipe.label) {
-      return <li key={recipe.label}>{recipe.label}</li>
+      return <FavRecipe
+        key={recipe.label}
+        label={recipe.label}
+      />
+
     }
     return null;
   });
