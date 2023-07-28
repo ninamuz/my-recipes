@@ -4,6 +4,16 @@
   grid-template-rows: [title] min-content [search] 50px [recipes] max-content;
 }
 
+.router {
+  grid-column: 1 /3;
+  grid-row: 2/ 3;
+  width: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  margin: 0 auto;
+}
+
 .app-title {
   grid-column: 1 / 3;
   text-align: center;
@@ -11,17 +21,16 @@
 
 .search {
   grid-column: 1 / 2;
-  grid-row: 2 / 3;
+  grid-row: 3 / 4;
 }
 
 .book {
   grid-column: 1 / 2;
-  grid-row: 3 / 4;
+  grid-row: 4 / 5;
 }
 
 .recipe {
   grid-column: 2 / 3;
-  grid-row: 3 / 4;
   border: 1px solid blueviolet;
   margin: 10px;
   background-color: rgb(245, 239, 203);
@@ -33,8 +42,7 @@
 }
 
 .favorites {
-  grid-column: 2 / 3;
-  grid-row: 3 / 4 ;
+  grid-column: 1 / 2;
   text-align: center;
 }
 
