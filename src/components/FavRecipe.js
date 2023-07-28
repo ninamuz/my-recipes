@@ -1,19 +1,22 @@
+import FavContext from "../context/favorites";
+import React, { useContext } from 'react';
 import '../styles.css';
 
-export default function FavRecipe({ recipe, label }) {
+export default function FavRecipe({ recipe }) {
 
-  const removeRecipe = (e, recipe) => {
-    e.preventDefault();
-    console.log(label);
+  const { removeFromFavorites } = useContext(FavContext);
+
+  const handleRemoveRecipe = (e) => {
+    removeFromFavorites(recipe);
   };
 
   return (
     <div className="favorites">
       <div className='fav-header'>
-      <h2>{label}</h2>
-      <button value={label} onClick={removeRecipe}>
+        <h2>{recipe.label}</h2>
+        <button value={recipe} onClick={handleRemoveRecipe}>
           <ion-icon name="trash-outline"></ion-icon>
-      </button>
+        </button>
       </div>
     </div>
   )

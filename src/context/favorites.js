@@ -6,15 +6,24 @@ const FavContextProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
 
   // Function to add a recipe to favorites
-  const updateFavorites = (recipe) => {
+  const addToFavorites = (recipe) => {
     if (!favorites.find((favRecipe) => favRecipe.label === recipe.label)) {
       setFavorites([...favorites, recipe]);
     }
   };
 
+  const removeFromFavorites = (recipe) => {
+    const newFavorites = favorites.filter(fav =>
+      fav.label !== recipe.label
+    );
+    setFavorites(newFavorites);
+  };
+
   const valueToShare = {
     favorites,
-    updateFavorites
+    setFavorites,
+    addToFavorites,
+    removeFromFavorites
   };
 
   return (

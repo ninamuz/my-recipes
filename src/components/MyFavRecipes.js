@@ -11,7 +11,7 @@ function MyFavRecipes() {
     if (recipe.label) {
       return <FavRecipe
         key={recipe.label}
-        label={recipe.label}
+        recipe={recipe}
       />
 
     }

@@ -4,19 +4,18 @@ import '../styles.css';
 
 export default function Recipe({ title, type, image, recipe }) {
 
-  const { updateFavorites } = useContext(FavContext);
+  const { addToFavorites } = useContext(FavContext);
 
-  function addToFavorites(e) {
+  function handleAddRecipeToFavorites(e) {
     e.preventDefault();
-    console.log('recipe clicked', recipe);
-    updateFavorites(recipe);
+    addToFavorites(recipe);
   };
 
   return (
     <div className="recipe">
       <div className='recipe-header'>
         <h2>{title}</h2>
-        <button value={recipe} onClick={addToFavorites}>
+        <button value={recipe} onClick={handleAddRecipeToFavorites}>
           <ion-icon name="star-outline"></ion-icon>
         </button>
       </div>
