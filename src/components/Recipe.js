@@ -1,9 +1,12 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import FavContext from '../context/favorites';
+import RecipesContext from '../context/recipes';
 import '../styles.css';
 
-export default function Recipe({ title, type, image, recipe }) {
+export default function Recipe({ recipe, title, image }) {
   const { addToFavorites, favorites } = useContext(FavContext);
+  const { setClickedRecipe } = useContext(RecipesContext);
 
   function handleAddRecipeToFavorites() {
     addToFavorites(recipe);
@@ -11,31 +14,33 @@ export default function Recipe({ title, type, image, recipe }) {
 
   const findFav = favorites.find((favRecipe) => favRecipe.label === recipe.label);
   const setIcon = findFav && findFav.isFavorite == true ? "star" : "star-outline"
-  
-  const openRecipe = () => {
-    console.log('OPEN RECIPE');
-    // eyeIcon === "eye-outline" ? setEyeIcon("eye") : setEyeIcon("eye-outline");
+
+  const handleGoToDetails = () => {
+    console.log('Sending recipe: ', recipe);
+    setClickedRecipe(recipe);
   };
-
-  return (
-    <>
-      <div className="recipe">
-        <div className="recipe-header">
-          <h2>{title}</h2>
-
-          <div className="buttons">
-            <span value={recipe} onClick={handleAddRecipeToFavorites}>
-              <ion-icon name={setIcon}></ion-icon>
-            </span>
-            <span value={recipe} onClick={openRecipe}>
-              <ion-icon name="eye-outline"></ion-icon>
-            </span>
-          </div>
-
+return (
+  <>
+    <div className="recipe">
+      <div className="recipe-header">
+        <h2>
+          <Link to="/recipe-details" onClick={handleGoToDetails}>Go to Recipe Details</Link>
+        </h2>
+        <div className="buttons">
+          <span value={recipe} onClick={handleAddRecipeToFavorites}>
+            <ion-icon name={setIcon}></ion-icon>
+          </span>
         </div>
-        <p>Cuisine type: {type}</p>
-        {/* <img src={image}></img> */}
       </div>
-    </>
-  )
+      <div className="recipe-body">
+        <img src={image} className="recipe-img"></img>
+        <div className="recipe-facts">
+          <p>Cuisine type: {recipe.cuisineType}</p>
+          <p>Dish type: {recipe.dishType}</p>
+          <p>Meal type: {recipe.mealType}</p>
+        </div>
+      </div>
+    </div>
+  </>
+)
 }

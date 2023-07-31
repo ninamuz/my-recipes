@@ -5,6 +5,7 @@ const RecipesContext = createContext();
 const RecipesContextProvider = ({ children }) => {
   const [recipes, setRecipes] = useState([]);
   const [query, setQuery] = useState('rice');
+  const [clickedRecipe, setClickedRecipe] = useState(null);
 
   // Api Data
   const APP_ID = '51373062';
@@ -25,11 +26,15 @@ const RecipesContextProvider = ({ children }) => {
     }
   };
 
+
+
  const valueToShare = {
   recipes,
+  clickedRecipe,
   query,
   fetchRecipes,
-  setQuery
+  setQuery,
+  setClickedRecipe
  };
 
   return (

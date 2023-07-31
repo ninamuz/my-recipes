@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import BookOfRecipes from "./components/BookOfRecipes";
 import MyFavRecipes from "./components/MyFavRecipes";
+import RecipeDetails from "./components/RecipeDetails";
 import './styles.css';
 
 function App() {
@@ -28,8 +29,9 @@ function App() {
         </div>
 
         <Routes>
-          <Route exact path="/" element={<BookOfRecipes />} />
-          <Route exact path="/favorites" element={<MyFavRecipes />} />
+          <Route name="Home" exact path="/" element={<BookOfRecipes />} />
+          <Route name="Favorites" exact path="/favorites" element={<MyFavRecipes />} />
+          <Route name="Details" exact path="/recipe-details" element={<RecipeDetails />} />
         </Routes>
       </BrowserRouter>
       

@@ -4,6 +4,7 @@ import RecipesContext from '../context/recipes';
 import Recipe from './Recipe';
 import SearchRecipes from './SearchRecipes';
 import '../styles.css';
+import RecipeDetails from './RecipeDetails';
 
 const BookOfRecipes = () => {
 
