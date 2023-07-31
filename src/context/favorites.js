@@ -5,10 +5,11 @@ const FavContext = createContext();
 const FavContextProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
 
+
   // Function to add a recipe to favorites
   const addToFavorites = (recipe) => {
     if (!favorites.find((favRecipe) => favRecipe.label === recipe.label)) {
-      setFavorites([...favorites, recipe]);
+      setFavorites([...favorites, { ...recipe, isFavorite: true }]);
     }
   };
 

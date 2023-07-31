@@ -1,9 +1,11 @@
 import React from 'react';
 
-function DisplayRecipe() {
+function DisplayRecipe({ recipe }) {
   return (
-    <div>DisplayRecipe</div>
+    <div>
+      <h1>DisplayRecipe</h1>
+    </div>
   )
 }
 
-export default DisplayRecipe
+export default DisplayRecipe;

@@ -50,3 +50,17 @@
   display: flex;
   justify-content: space-between;
 }
+
+.displayedRecipe {
+  grid-column: 2 / 3;
+  grid-row: 4 / 5;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+}
+
+span {
+  margin: 10px;
+}
