@@ -17,6 +17,7 @@ const BookOfRecipes = () => {
   const renderedRecipes = recipes.map((data, index) => {
     const recipe = data.recipe;
     const uniqueKey = data.recipe.label + index;
+
     return <Recipe
       key={uniqueKey}
       recipe={recipe}

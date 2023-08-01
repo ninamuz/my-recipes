@@ -19,28 +19,28 @@ export default function Recipe({ recipe, title, image }) {
     console.log('Sending recipe: ', recipe);
     setClickedRecipe(recipe);
   };
-return (
-  <>
-    <div className="recipe">
-      <div className="recipe-header">
-        <h2>
-          <Link to="/recipe-details" onClick={handleGoToDetails}>Go to Recipe Details</Link>
-        </h2>
-        <div className="buttons">
-          <span value={recipe} onClick={handleAddRecipeToFavorites}>
-            <ion-icon name={setIcon}></ion-icon>
-          </span>
+  return (
+    <>
+      <div className="recipe">
+        <div className="recipe-header">
+          <h2>
+            <Link to="/recipe-details" onClick={handleGoToDetails}>{title}</Link>
+          </h2>
+          <div className="buttons">
+            <span value={recipe} onClick={handleAddRecipeToFavorites}>
+              <ion-icon name={setIcon}></ion-icon>
+            </span>
+          </div>
+        </div>
+        <div className="recipe-body">
+          <img src={image} className="recipe-img"></img>
+          <div className="recipe-facts">
+            <p><strong>Cuisine type:</strong> {recipe.cuisineType}</p>
+            <p><strong>Dish type:</strong>{recipe.dishType}</p>
+            <p><strong>Meal type:</strong>{recipe.mealType}</p>
+          </div>
         </div>
       </div>
-      <div className="recipe-body">
-        <img src={image} className="recipe-img"></img>
-        <div className="recipe-facts">
-          <p>Cuisine type: {recipe.cuisineType}</p>
-          <p>Dish type: {recipe.dishType}</p>
-          <p>Meal type: {recipe.mealType}</p>
-        </div>
-      </div>
-    </div>
-  </>
-)
+    </>
+  )
 }
