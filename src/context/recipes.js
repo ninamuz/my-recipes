@@ -6,6 +6,7 @@ const RecipesContextProvider = ({ children }) => {
   const [recipes, setRecipes] = useState([]);
   const [query, setQuery] = useState('rice');
   const [clickedRecipe, setClickedRecipe] = useState(null);
+  const [view, setView] = useState(false);
 
   // Api Data
   const APP_ID = '51373062';
@@ -32,8 +33,10 @@ const RecipesContextProvider = ({ children }) => {
   recipes,
   clickedRecipe,
   query,
+  view,
   fetchRecipes,
   setQuery,
+  setView,
   setClickedRecipe
  };
 
