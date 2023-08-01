@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import RecipesContext from '../context/recipes';
 
-const RecipeDetails = () => {
+const RecipeDetails = ({ currentPage }) => {
 
   const { clickedRecipe } = useContext(RecipesContext);
   console.log('Received recipe: ', clickedRecipe);
@@ -21,9 +21,11 @@ const RecipeDetails = () => {
 
   return (
     <div className="recipe-details">
-      <Link to="/">Back</Link>
+
+      {currentPage !== "MyFavRecipes" && <Link to="/">Back</Link>}
 
       <h2>Recipe Details for: {label}</h2>
+      <img src={image}></img>
       <p>Cuisine type: {cuisineType}</p>
       <p>Dish type: {dishType}</p>
       <p>Meal type: {mealType}</p>

@@ -28,8 +28,6 @@ const SearchRecipes = () => {
         />
         <button type="submit">Search</button>
       </form>
-
-      {search !== '' && <p>Your search term is: {search}</p>}
     </div>
   )
 }
