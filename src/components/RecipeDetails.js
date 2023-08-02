@@ -1,11 +1,13 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import RecipesContext from '../context/recipes';
+import FavContext from '../context/favorites';
 
 const RecipeDetails = ({ currentPage }) => {
 
   const { clickedRecipe } = useContext(RecipesContext);
-  console.log('Received recipe: ', clickedRecipe);
+  const { addToFavorites, favorites } = useContext(FavContext);
+  // console.log('Received recipe: ', clickedRecipe);
 
   const {
     label,
@@ -19,21 +21,46 @@ const RecipeDetails = ({ currentPage }) => {
     return <li>{ing.food}</li>
   });
 
-  return (
+  function handleAddRecipeToFavorites() {
+    console.log('clicked recipeeee', clickedRecipe);
+    addToFavorites(clickedRecipe);
+  };
+
+  const findFav = favorites.find((favRecipe) => favRecipe.label === clickedRecipe.label);
+  const setIcon = findFav && findFav.isFavorite == true ? "star" : "star-outline"
+
+  return (<>
+    {
+      currentPage !== "MyFavRecipes" && <>
+      <Link to="/" className='backLink'>
+        <ion-icon name="arrow-back-circle-outline"></ion-icon>
+      </Link>
+        <span className='starButton' value={clickedRecipe} onClick={handleAddRecipeToFavorites}>
+        <ion-icon name={setIcon}></ion-icon>
+      </span>
+      </>
+    }
+
     <div className="recipe-details">
-
-      {currentPage !== "MyFavRecipes" && <Link to="/">Back</Link>}
-
-      <h2>Recipe Details for: {label}</h2>
-      <img src={image}></img>
-      <p>Cuisine type: {cuisineType}</p>
-      <p>Dish type: {dishType}</p>
-      <p>Meal type: {mealType}</p>
-      <div>
-        <h2>Ingredients:</h2>
-        <ul>{renderedIngredients}</ul>
+      <div className='recipe-details_header'>
+        <h2>
+          {label}
+        </h2>
+        <img src={image} alt={label}></img>
       </div>
+
+      <div className='recipe-details_body'>
+        <p>Cuisine type: {cuisineType}</p>
+        <p>Dish type: {dishType}</p>
+        <p>Meal type: {mealType}</p>
+        <div className='recipe-details_ingredients'>
+          <h2>Ingredients:</h2>
+          <ul>{renderedIngredients}</ul>
+        </div>
+      </div>
+
     </div>
+  </>
   );
 };
 

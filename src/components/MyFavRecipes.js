@@ -1,6 +1,6 @@
 import FavContext from "../context/favorites";
 import RecipesContext from "../context/recipes";
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import FavRecipe from "./FavRecipe";
 import RecipeDetails from "./RecipeDetails";
 import '../styles.css';
@@ -8,7 +8,7 @@ import '../styles.css';
 function MyFavRecipes() {
 
   const { favorites } = useContext(FavContext);
-  const { clickedRecipe, view } = useContext(RecipesContext);
+  const { view } = useContext(RecipesContext);
 
   const renderedFavs = favorites.map(recipe => {
     if (recipe.label) {

@@ -9,14 +9,14 @@ export default function Recipe({ recipe, title, image }) {
   const { setClickedRecipe } = useContext(RecipesContext);
 
   function handleAddRecipeToFavorites() {
-    addToFavorites(recipe);
+    addToFavorites({ ...recipe, isFavorite: true });
   };
 
   const findFav = favorites.find((favRecipe) => favRecipe.label === recipe.label);
   const setIcon = findFav && findFav.isFavorite == true ? "star" : "star-outline"
 
   const handleGoToDetails = () => {
-    console.log('Sending recipe: ', recipe);
+    // console.log('Sending recipe: ', recipe);
     setClickedRecipe(recipe);
   };
   return (
