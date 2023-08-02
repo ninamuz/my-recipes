@@ -24,7 +24,6 @@ const RecipeDetails = ({ currentPage }) => {
   });
 
   function handleAddRecipeToFavorites() {
-    console.log('clicked recipeeee', clickedRecipe);
     addToFavorites(clickedRecipe);
   };
 

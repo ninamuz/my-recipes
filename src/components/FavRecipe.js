@@ -13,7 +13,7 @@ export default function FavRecipe({ recipe }) {
   };
 
   const handleGoToDetails = () => {
-    console.log('Sending recipe: ', recipe);
+    // console.log('Sending recipe: ', recipe);
     setClickedRecipe(recipe);
     setView(true);
   };

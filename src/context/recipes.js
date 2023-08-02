@@ -19,15 +19,13 @@ const RecipesContextProvider = ({ children }) => {
     try {
       if (response.ok) {
         const data = await response.json();
-        console.log('DATA', data.hits);
+        // console.log('DATA', data.hits);
         setRecipes(data.hits);
       }
     } catch (error) {
       console.log(error);
     }
   };
-
-
 
  const valueToShare = {
   recipes,
