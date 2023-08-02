@@ -17,8 +17,10 @@ const RecipeDetails = ({ currentPage }) => {
     image
   } = clickedRecipe;
 
+  const someID = Math.floor(Math.random() * Date.now());
+
   const renderedIngredients = clickedRecipe.ingredients.map((ing) => {
-    return <li>{ing.food}</li>
+    return <li key={someID + Math.random()}>{ing.food}</li>
   });
 
   function handleAddRecipeToFavorites() {
