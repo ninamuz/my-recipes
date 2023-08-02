@@ -1,6 +1,6 @@
 import FavContext from "../context/favorites";
 import RecipesContext from "../context/recipes";
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import FavRecipe from "./FavRecipe";
 import RecipeDetails from "./RecipeDetails";
 import '../styles.css';
@@ -8,7 +8,11 @@ import '../styles.css';
 function MyFavRecipes() {
 
   const { favorites } = useContext(FavContext);
-  const { view } = useContext(RecipesContext);
+  const { view, clickedRecipe } = useContext(RecipesContext);
+
+  useEffect(() => {
+    showRecipe();
+  }, [favorites]);
 
   const renderedFavs = favorites.map(recipe => {
     if (recipe.label) {
@@ -22,10 +26,14 @@ function MyFavRecipes() {
   });
 
   const showRecipe = () => {
-    if (view == true) {
-      return <div>
-        <RecipeDetails currentPage='MyFavRecipes'/>
-      </div>
+    const favItem = favorites.map((el) => {
+      return el.label;
+    });
+
+    if ((view == true && favorites.length > '0') && favItem.includes(clickedRecipe.label)) {
+      return <div><RecipeDetails currentPage='MyFavRecipes' /></div>
+    } else if (favorites.length == 0) {
+      return <div className="waiting-screen">No favorites recipes to show</div>
     } else {
       return <div className="waiting-screen">Click on a recipe to show details</div>
     }
