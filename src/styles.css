@@ -11,7 +11,8 @@
 
 .app-header-img {
   width: 100%;
-  height: min-content;
+  height: 250px;
+  object-fit: cover;
 }
 
 .router {
@@ -29,14 +30,14 @@
 .router > a {
   text-decoration: none;
   font-size: 1.5rem;
-  color: antiquewhite;
+  color: white;
   width: 100px;
   font-weight: 800;
   padding: 0px 0px;
 }
 
 .link:hover {
-  color: hsl(289, 79%, 81%);
+  color: hsl(53, 87%, 76%);
 }
 
 .search {
@@ -60,10 +61,11 @@
 
 .recipe {
   grid-column: 2 / 3;
-  border: 1px solid blueviolet;
+  border: 1px solid #cb9df6;
+  border-radius: 8px;
   margin: 10px;
   padding: 10px;
-  background-color: rgb(245 237 252);
+  background-color: rgb(255 251 255);
   width: 40%;
   height: 250px;
 }
@@ -71,14 +73,17 @@
 .recipe-header {
   display: flex;
   justify-content: space-between;
+  font-family: 'Borel', cursive;
 }
 
 .recipe-header > h2 > a {
   text-decoration: none;
+  color: #211554;
 }
 
 .recipe-body {
   display: flex;
+  font-family: 'PT Sans', sans-serif;
 }
 
 .recipe-body > .recipe-img {
@@ -96,8 +101,10 @@
 .favorites-container {
   grid-column: 1 / 3;
   display: grid;
-  grid-template-columns: [fav-list] 50% [fav-detail] 50%;
+  grid-template-columns: [fav-list] 40% [fav-detail] 50%;
   justify-items: start;
+  justify-content: center;
+  gap: 40px;
   min-height: 400px;
 }
 
@@ -116,24 +123,70 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  font-family: 'Borel', cursive;
+  border: 1px solid #bb6225;
+  border-radius: 10px;
+  padding: 0px 20px;
+  margin: 10px 0px;
 }
-
-/* .fav-header {
-} */
-
-/* .displayedRecipe {
-  grid-column: 2 / 3;
-  grid-row: 4 / 5;
-} */
 
 .recipe-details {
   grid-column: 1 / 3;
-  grid-row: 3 / 4;
+  grid-row: 4 / auto;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f6d4aa;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.recipe-details_header {
+  margin: 20px;
+}
+
+.recipe-details_header > h2 {
+  font-family: 'Borel', cursive;
+  font-size: 2rem;
+  margin: 10px 0px;
+}
+
+.recipe-details_header > img {
+  border-radius: 20px;
+}
+
+.recipe-details_body {
+  margin: 20px;
+  font-family: 'PT Sans', sans-serif;
+  text-align: start;
+}
+
+.recipe-details_ingredients > ul > li {
+  list-style: circle;
+}
+
+.backLink {
+  position: absolute;
+  top: 452px;
+  font-size: 2rem;
+  color: #db143c;
+  margin-left: 20px;
+}
+
+.starButton {
+  position: absolute;
+  top: 490px;
+  font-size: 2rem;
+  color: #db143c;
+  margin-left: 20px;
 }
 
 .buttons {
   display: flex;
   align-items: center;
+  font-size: 1.5rem;
 }
 
 span {
