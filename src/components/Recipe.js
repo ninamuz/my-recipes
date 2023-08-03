@@ -36,8 +36,8 @@ export default function Recipe({ recipe, title, image }) {
           <img src={image} className="recipe-img"></img>
           <div className="recipe-facts">
             <p><strong>Cuisine type:</strong> {recipe.cuisineType}</p>
-            <p><strong>Dish type:</strong>{recipe.dishType}</p>
-            <p><strong>Meal type:</strong>{recipe.mealType}</p>
+            <p><strong>Dish type:</strong> {recipe.dishType}</p>
+            <p><strong>Meal type:</strong> {recipe.mealType}</p>
           </div>
         </div>
       </div>
